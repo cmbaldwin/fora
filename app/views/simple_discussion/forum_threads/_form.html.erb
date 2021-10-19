@@ -28,7 +28,7 @@
     <%= f.fields_for :forum_posts do |p| %>
       <div class="form-group">
         <%= p.label :body, t('new_thread_first_post') %>
-        <%= p.rich_text_area :body, placeholder: t('add_comments'), rows: 10, class: "form-control simplemde", data: { behavior: "comment-body" } %>
+        <%= p.rich_text_area :body, placeholder: t('first_post_thread_body'), rows: 10, class: "form-control simplemde", data: { behavior: "comment-body" } %>
       </div>
     <% end %>
   <% end %>
