@@ -1,4 +1,7 @@
 en:
+  thread_title: Thread Title
+  new_thread_first_post: New Thread
+  first_thread_post_body: Post Body
   start_a_discussion: Start A Discussion
   add_a_comment: Add A Comment
   ask_a_question: Ask A Question
