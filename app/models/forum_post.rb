@@ -9,7 +9,11 @@ class ForumPost < ApplicationRecord
   scope :sorted, -> { order(:created_at) }
 
   after_update :solve_forum_thread, if: :solved?
-
+  
+  def body
+    rich_text_body || build_rich_text_body(body: read_attribute(:body))
+  end
+  
   def solve_forum_thread
     forum_thread.update(solved: true)
   end
