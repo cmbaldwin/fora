@@ -1,16 +1,16 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "simple_discussion/version"
+require "fora/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "simple_discussion"
-  spec.version = SimpleDiscussion::VERSION
-  spec.authors = ["Chris Oliver"]
-  spec.email = ["excid3@gmail.com"]
+  spec.name = "fora"
+  spec.version = Fora::VERSION
+  spec.authors = ["Cody Baldwin", "Josh Nishikiawa", "Chris Oliver"]
+  spec.email = ["codybaldwin@gmail.com"]
 
-  spec.summary = "A simple, extensible Rails forum"
-  spec.description = "A simple, extensible Rails forum"
-  spec.homepage = "https://github.com/excid3/simple_discussion"
+  spec.summary = "A forum with the goal of being a configurable competitior to PHP forums"
+  spec.description = "Fora is the plural of the greek word 'forum'"
+  spec.homepage = "https://github.com/cmbaldwin/fora"
   spec.license = "MIT"
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
