@@ -1,4 +1,4 @@
-class Fora < ::ApplicationController
+class Fora::ApplicationController < ::ApplicationController
   layout "fora"
 
   def page_number

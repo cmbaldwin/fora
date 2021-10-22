@@ -12,7 +12,7 @@
             <span class="text-success"><%= icon "fas", "check-circle" %></span>
           <% end %>
 
-          <%= link_to simple_discussion.forum_thread_path(forum_thread) do %>
+          <%= link_to fora.forum_thread_path(forum_thread) do %>
             <%= icon "fas", "thumb-tack", class: "text-muted" if forum_thread.pinned? %> <%= forum_thread.title %>
           <% end %>
         </h4>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="col-sm-2 text-center">
-        <%= link_to simple_discussion.forum_thread_path(forum_thread), class: "thread-posts-count" do %>
+        <%= link_to fora.forum_thread_path(forum_thread), class: "thread-posts-count" do %>
           <span class="count"><%= forum_thread.forum_posts_count %></span>
           <small><%= t("post", count: forum_thread.forum_posts_count) %></small>
         <% end %>

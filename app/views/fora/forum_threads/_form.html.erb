@@ -1,5 +1,5 @@
 <%= form_for @forum_thread,
-   url: (@forum_thread.persisted? ? simple_discussion.forum_thread_path(@forum_thread) : simple_discussion.forum_threads_path),
+   url: (@forum_thread.persisted? ? fora.forum_thread_path(@forum_thread) : fora.forum_threads_path),
    html: { data: {behavior: "comment-form"} } do |f| %>
 
   <% if @forum_thread.errors.any? %>

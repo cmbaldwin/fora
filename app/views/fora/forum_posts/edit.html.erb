@@ -1,4 +1,4 @@
-<p><small><%= link_to "← Back to the thread", simple_discussion.forum_thread_path(@forum_thread) %></small></p>
+<p><small><%= link_to "← Back to the thread", fora.forum_thread_path(@forum_thread) %></small></p>
 
 <h2><%= content_tag :span, "Pinned", class: "text-muted" if @forum_thread.pinned? %> <%= @forum_thread.title %></h2>
 
@@ -17,7 +17,7 @@
       <strong class="forum-post-user"><%= @forum_post.user.name %></strong>
       <small>
         <%= t('commented_on')%>
-        <%= link_to @forum_post.created_at.strftime("%b %d, %Y"), simple_discussion.forum_thread_url(@forum_thread, anchor: "forum_post_#{@forum_post.id}") %>:
+        <%= link_to @forum_post.created_at.strftime("%b %d, %Y"), fora.forum_thread_url(@forum_thread, anchor: "forum_post_#{@forum_post.id}") %>:
       </small>
     </div>
   </div>
