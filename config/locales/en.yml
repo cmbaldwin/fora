@@ -19,7 +19,7 @@ en:
   ignoring_thread: You're ignoring this thread.
   not_receiving_notifications: You’re not receiving notifications from this thread.
   layouts:
-    simple_discussion:
+    fora:
       all_threads: All Threads
       answered: Answered
       by_category: By Category

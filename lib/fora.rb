@@ -1,4 +1,3 @@
-require "font-awesome-sass"
 require "friendly_id"
 require "will_paginate"
 
