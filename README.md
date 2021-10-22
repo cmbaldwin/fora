@@ -4,4 +4,4 @@ A fork of Simple Discussion that's less simple. Updated and designed for Ruby 3+
 
 Read installation instructions:
 
-https://github.com/excid3/simple_discussion
+https://github.com/excid3/fora

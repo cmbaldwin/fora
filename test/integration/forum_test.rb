@@ -2,7 +2,7 @@ require "test_helper"
 
 class ForumTest < ActionDispatch::IntegrationTest
   include ActionView::RecordIdentifier
-  include SimpleDiscussion::Engine.routes.url_helpers
+  include Fora::Engine.routes.url_helpers
 
   setup do
     sign_in users(:one)

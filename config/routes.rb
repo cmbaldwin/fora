@@ -1,5 +1,5 @@
-SimpleDiscussion::Engine.routes.draw do
-  scope module: :simple_discussion do
+Fora::Engine.routes.draw do
+  scope module: :fora do
     resources :forum_threads, path: :threads do
       collection do
         get :answered
@@ -25,5 +25,5 @@ SimpleDiscussion::Engine.routes.draw do
     end
   end
 
-  root to: "simple_discussion/forum_threads#index"
+  root to: "fora/forum_threads#index"
 end

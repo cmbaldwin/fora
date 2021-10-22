@@ -5,11 +5,11 @@ require "fora/version"
 Gem::Specification.new do |spec|
   spec.name = "fora"
   spec.version = Fora::VERSION
-  spec.authors = ["Cody Baldwin", "Josh Nishikiawa", "Chris Oliver"]
+  spec.authors = ["Chris Oliver", "Cody Baldwin"]
   spec.email = ["codybaldwin@gmail.com"]
 
-  spec.summary = "A forum with the goal of being a configurable competitior to PHP forums"
-  spec.description = "Fora is the plural of the greek word 'forum'"
+  spec.summary = "A modified fork of the simple_discussion forum."
+  spec.description = "Fora is the plural of the greek word 'forum'. See simple_discussion docs for installation instructions."
   spec.homepage = "https://github.com/cmbaldwin/fora"
   spec.license = "MIT"
 

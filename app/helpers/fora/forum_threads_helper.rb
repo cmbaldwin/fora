@@ -1,4 +1,4 @@
-module SimpleDiscussion::ForumThreadsHelper
+module Fora::ForumThreadsHelper
   # Used for flagging links in the navbar as active
   def forum_link_to(path, opts = {}, &block)
     link_to path, class: forum_link_class(path, opts), &block

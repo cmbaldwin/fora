@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include SimpleDiscussion::ForumUser
+  include Fora::ForumUser
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

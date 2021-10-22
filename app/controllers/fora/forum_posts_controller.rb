@@ -1,4 +1,4 @@
-class SimpleDiscussion::ForumPostsController < SimpleDiscussion::ApplicationController
+class Fora::ForumPostsController < Fora::ApplicationController
   before_action :authenticate_user!
   before_action :set_forum_thread
   before_action :set_forum_post, only: [:edit, :update, :destroy]
@@ -10,10 +10,10 @@ class SimpleDiscussion::ForumPostsController < SimpleDiscussion::ApplicationCont
     @forum_post.user_id = current_user.id
 
     if @forum_post.save
-      SimpleDiscussion::ForumPostNotificationJob.perform_later(@forum_post)
-      redirect_to simple_discussion.forum_thread_path(@forum_thread, anchor: "forum_post_#{@forum_post.id}")
+      Fora::ForumPostNotificationJob.perform_later(@forum_post)
+      redirect_to fora.forum_thread_path(@forum_thread, anchor: "forum_post_#{@forum_post.id}")
     else
-      render template: "simple_discussion/forum_threads/show"
+      render template: "fora/forum_threads/show"
     end
   end
 
@@ -22,7 +22,7 @@ class SimpleDiscussion::ForumPostsController < SimpleDiscussion::ApplicationCont
 
   def update
     if @forum_post.update(forum_post_params)
-      redirect_to simple_discussion.forum_thread_path(@forum_thread)
+      redirect_to fora.forum_thread_path(@forum_thread)
     else
       render action: :edit
     end
@@ -30,7 +30,7 @@ class SimpleDiscussion::ForumPostsController < SimpleDiscussion::ApplicationCont
 
   def destroy
     @forum_post.destroy!
-    redirect_to simple_discussion.forum_thread_path(@forum_thread)
+    redirect_to fora.forum_thread_path(@forum_thread)
   end
 
   def solved
@@ -40,7 +40,7 @@ class SimpleDiscussion::ForumPostsController < SimpleDiscussion::ApplicationCont
     @forum_post.update_column(:solved, true)
     @forum_thread.update_column(:solved, true)
 
-    redirect_to simple_discussion.forum_thread_path(@forum_thread, anchor: ActionView::RecordIdentifier.dom_id(@forum_post))
+    redirect_to fora.forum_thread_path(@forum_thread, anchor: ActionView::RecordIdentifier.dom_id(@forum_post))
   end
 
   def unsolved
@@ -49,7 +49,7 @@ class SimpleDiscussion::ForumPostsController < SimpleDiscussion::ApplicationCont
     @forum_thread.forum_posts.update_all(solved: false)
     @forum_thread.update_column(:solved, false)
 
-    redirect_to simple_discussion.forum_thread_path(@forum_thread, anchor: ActionView::RecordIdentifier.dom_id(@forum_post))
+    redirect_to fora.forum_thread_path(@forum_thread, anchor: ActionView::RecordIdentifier.dom_id(@forum_post))
   end
 
   private

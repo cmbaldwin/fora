@@ -1,7 +1,7 @@
 require "open-uri"
 require "net/http"
 
-module SimpleDiscussion
+module Fora
   class Slack
     attr_reader :url
 

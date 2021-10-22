@@ -1,21 +1,21 @@
-class SimpleDiscussion::ForumPostNotificationJob < ApplicationJob
-  include SimpleDiscussion::Engine.routes.url_helpers
+class Fora::ForumPostNotificationJob < ApplicationJob
+  include Fora::Engine.routes.url_helpers
 
   def perform(forum_post)
-    send_emails(forum_post) if SimpleDiscussion.send_email_notifications
-    send_webhook(forum_post) if SimpleDiscussion.send_slack_notifications
+    send_emails(forum_post) if Fora.send_email_notifications
+    send_webhook(forum_post) if Fora.send_slack_notifications
   end
 
   def send_emails(forum_post)
     forum_thread = forum_post.forum_thread
     users = forum_thread.subscribed_users - [forum_post.user]
     users.each do |user|
-      SimpleDiscussion::UserMailer.new_post(forum_post, user).deliver_later
+      Fora::UserMailer.new_post(forum_post, user).deliver_later
     end
   end
 
   def send_webhook(forum_post)
-    slack_webhook_url = Rails.application.secrets.simple_discussion_slack_url
+    slack_webhook_url = Rails.application.secrets.fora_slack_url
     return if slack_webhook_url.blank?
 
     forum_thread = forum_post.forum_thread
@@ -37,6 +37,6 @@ class SimpleDiscussion::ForumPostNotificationJob < ApplicationJob
       ts: forum_post.created_at.to_i
     }
 
-    SimpleDiscussion::Slack.new(slack_webhook_url).post(payload)
+    Fora::Slack.new(slack_webhook_url).post(payload)
   end
 end

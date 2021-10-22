@@ -1,4 +1,4 @@
-class SimpleDiscussion::ForumThreadsController < SimpleDiscussion::ApplicationController
+class Fora::ForumThreadsController < Fora::ApplicationController
   before_action :authenticate_user!, only: [:mine, :participating, :new, :create]
   before_action :set_forum_thread, only: [:show, :edit, :update]
   before_action :require_mod_or_author_for_thread!, only: [:edit, :update]
@@ -43,7 +43,7 @@ class SimpleDiscussion::ForumThreadsController < SimpleDiscussion::ApplicationCo
 
     if @forum_thread.save
       SimpleDiscussion::ForumThreadNotificationJob.perform_later(@forum_thread)
-      redirect_to simple_discussion.forum_thread_path(@forum_thread)
+      redirect_to fora.forum_thread_path(@forum_thread)
     else
       render action: :new
     end
@@ -54,7 +54,7 @@ class SimpleDiscussion::ForumThreadsController < SimpleDiscussion::ApplicationCo
 
   def update
     if @forum_thread.update(forum_thread_params)
-      redirect_to simple_discussion.forum_thread_path(@forum_thread), notice: I18n.t("your_changes_were_saved")
+      redirect_to fora.forum_thread_path(@forum_thread), notice: I18n.t("your_changes_were_saved")
     else
       render action: :edit
     end

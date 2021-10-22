@@ -2,13 +2,13 @@ require "font-awesome-sass"
 require "friendly_id"
 require "will_paginate"
 
-require "simple_discussion/engine"
-require "simple_discussion/forum_user"
-require "simple_discussion/slack"
-require "simple_discussion/version"
-require "simple_discussion/will_paginate"
+require "fora/engine"
+require "fora/forum_user"
+require "fora/slack"
+require "fora/version"
+require "fora/will_paginate"
 
-module SimpleDiscussion
+module Fora
   # Define who owns the subscription
   mattr_accessor :send_email_notifications
   mattr_accessor :send_slack_notifications

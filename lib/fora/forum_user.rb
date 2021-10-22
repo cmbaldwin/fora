@@ -1,4 +1,4 @@
-module SimpleDiscussion
+module Fora
   module ForumUser
     extend ActiveSupport::Concern
 

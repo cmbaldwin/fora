@@ -1,6 +1,6 @@
 require "will_paginate/view_helpers/action_view"
 
-module SimpleDiscussion
+module Fora
   # This code serves two purposes
   # 1. It patches will_paginate to work with scoped and mounted Rails engines
   #    by adding in the url_builder option

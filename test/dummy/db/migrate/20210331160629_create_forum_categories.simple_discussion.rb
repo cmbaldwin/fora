@@ -1,4 +1,4 @@
-# This migration comes from simple_discussion (originally 20170417012930)
+# This migration comes from fora (originally 20170417012930)
 class CreateForumCategories < ActiveRecord::Migration[4.2]
   def change
     create_table :forum_categories do |t|
