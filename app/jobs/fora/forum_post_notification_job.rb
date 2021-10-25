@@ -9,9 +9,7 @@ class Fora::ForumPostNotificationJob < ApplicationJob
   def send_emails(forum_post)
     forum_thread = forum_post.forum_thread
     users = forum_thread.subscribed_users - [forum_post.user]
-    users.each do |user|
-      Fora::UserMailer.new_post(forum_post, user).deliver_later
-    end
+    users.each { |user| Fora::UserMailer.new_post(forum_post, user).deliver_later } if users
   end
 
   def send_webhook(forum_post)

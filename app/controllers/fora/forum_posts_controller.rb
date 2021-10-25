@@ -67,6 +67,6 @@ class Fora::ForumPostsController < Fora::ApplicationController
   end
 
   def forum_post_params
-    params.require(:forum_post).permit(:body)
+    params.require(:forum_post).permit(:text)
   end
 end

@@ -42,7 +42,7 @@ class Fora::ForumThreadsController < Fora::ApplicationController
     @forum_thread.forum_posts.each { |post| post.user_id = current_user.id }
 
     if @forum_thread.save
-      SimpleDiscussion::ForumThreadNotificationJob.perform_later(@forum_thread)
+      Fora::ForumThreadNotificationJob.perform_later(@forum_thread)
       redirect_to fora.forum_thread_path(@forum_thread)
     else
       render action: :new
@@ -67,6 +67,6 @@ class Fora::ForumThreadsController < Fora::ApplicationController
   end
 
   def forum_thread_params
-    params.require(:forum_thread).permit(:title, :forum_category_id, forum_posts_attributes: [:body])
+    params.require(:forum_thread).permit(:title, :forum_category_id, forum_posts_attributes: [:text])
   end
 end

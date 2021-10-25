@@ -10,4 +10,4 @@ gem "standardrb"
 
 gem "devise"
 gem "puma"
-gem "sqlite3"
+gem "pg"

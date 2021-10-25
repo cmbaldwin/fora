@@ -9,11 +9,11 @@
       <div class="col">
         <h4>
           <% if forum_thread.solved? %>
-            <span class="text-success">Finished</span>
+            <%= bootstrap_icon("check", width: 21, height: 21, class: "text-success") %>
           <% end %>
 
           <%= link_to fora.forum_thread_path(forum_thread) do %>
-            <%= 'pinned' if forum_thread.pinned? %> <%= forum_thread.title %>
+            <%= bootstrap_icon("pin", width: 21, height: 21)  if forum_thread.pinned? %> <%= forum_thread.title %>
           <% end %>
         </h4>
 
@@ -22,7 +22,7 @@
           • <%= t('asked_time_ago', time: time_ago_in_words(forum_thread.created_at), author: forum_thread.user.name) %>
         </div>
 
-        <p class="text-muted"><%= truncate(forum_thread.forum_posts.first.body.to_plain_text, length: 200) %></p>
+        <p class="text-muted"><%= truncate(forum_thread.forum_posts.first.text.to_plain_text, length: 200) unless forum_thread.forum_posts.first.nil? %></p>
       </div>
 
       <div class="col-sm-2 text-center">

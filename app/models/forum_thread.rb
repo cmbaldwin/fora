@@ -23,7 +23,7 @@ class ForumThread < ApplicationRecord
   scope :unsolved, -> { where.not(solved: true) }
 
   def subscribed_users
-    (users + optin_subscribers).uniq - optout_subscribers
+    optin_subscribers.uniq - optout_subscribers
   end
 
   def subscription_for(user)

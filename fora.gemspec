@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "friendly_id", ">= 5.2.0"
-  spec.add_dependency "rails", ">= 4.2"
+  spec.add_dependency "rails", '>= 6.1.4.1'
   spec.add_dependency "will_paginate", ">= 3.1.0"
+  spec.add_dependency "bootstrap-icons-helper"
 end
