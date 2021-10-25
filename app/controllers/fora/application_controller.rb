@@ -1,4 +1,12 @@
 class Fora::ApplicationController < ::ApplicationController
+  before_action :check_user
+
+  def check_user
+    return unless !user_signed_in? #can also use current_user.method? to check various things
+    flash[:notice] = 'Unauthorized. Only registered and confirmed users can view the forum at this time.'
+    redirect_to root_path, error: 'Unauthorized'
+  end
+
   layout "fora"
 
   def page_number
