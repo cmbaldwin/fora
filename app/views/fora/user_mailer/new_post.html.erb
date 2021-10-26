@@ -1,7 +1,7 @@
 <div style="position: relative">
   <div style="margin-left:60px">
     <p><strong><%= @forum_post.user.name %></strong> <small>commented:</small></p>
-    <%= @forum_post.text.html_safe %>
+    <%= @forum_post.text.body.html_safe %>
   </div>
 </div>
 
