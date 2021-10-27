@@ -1,3 +1,8 @@
+### 1.0.1
+
+* Bootstrap-icons
+* Notifications working
+
 ### 1.0.0
 
 * Forked
