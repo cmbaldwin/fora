@@ -27,15 +27,7 @@ class ForumThread < ApplicationRecord
   # end
 
   def subscribed_users
-    unless optin_subscribers.empty?
-      unless optout_subscribers.empty?
-        (user + optin_subscribers.uniq) - optout_subscribers
-      else
-        (user + optin_subscribers.uniq)
-      end
-    else
-      user
-    end
+    ([user] + optin_subscribers.uniq) - optout_subscribers
   end
 
   def subscription_for(user)
