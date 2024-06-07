@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col">
+    <h1><%= bootstrap_icon("pin", width: 21, height: 21) if @forum_thread.pinned? %> <%= @forum_thread.title %></h1>
+  </div>
+
+    <div class="col">
+      <div class="d-flex float-end mt-2 top-thread-nav">
+        <% if (@posts && (@posts.length > 3)) %>
+            <%= will_paginate @posts, url_builder: fora, renderer: Fora::BootstrapLinkRenderer %>
+            <%= last_post_link(@forum_thread) %>
+        <% end %>
+        <% if is_moderator_or_owner?(@forum_thread) %>
+          <%= link_to bootstrap_icon("pencil", width: 18, height: 18), fora.edit_forum_thread_path(@forum_thread),
+          class: "btn btn-sm btn-outline-primary mb-3",
+          data: { toggle: "tooltip", placement: "left" },
+          title: t('edit_this_thread') %>
+        <% end %>
+      </div>
+    </div>
+
+</div>
+
+<p class="thread-details">
+  <strong><%= category_link(@forum_thread.forum_category) %></strong>
+  • <%= t('asked_time_ago', time: time_ago_in_words(@forum_thread.created_at), author: @forum_thread.user.name) %>
+</p>
+
+<%= render partial: "fora/forum_posts/forum_post", collection: @posts %>
+
+<%= render partial: "fora/forum_posts/form" if user_signed_in? %>

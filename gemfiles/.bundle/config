@@ -1,0 +1,4 @@
+---
+
+BUNDLE_RETRY: "1"
+BUNDLE_BUILD\_\_NOKOGIRI: "--use-system-libraries --with-libiconv-prefix=/usr/bin/iconv"
